@@ -19,7 +19,7 @@ class TeamsDetailView(View):
 
 class MemberListView(View):
     def get(self, request, team_id):
-        memberslist = TeamMember.objects.get(id=int(team_id))
+        memberslist = TeamMember.objects.filter(team_id=int(team_id))
         brandlist = Brand.objects.all()
         teamlist = Teams.objects.all()
         return render(request, 'member_list.html', {

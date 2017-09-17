@@ -41,7 +41,7 @@
     <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="team_left">
         <div class="list-group">
         {% for teams in teamslist %}
-        <a href="{% url 'teams' teams.id %}" class="list-group-item">{{ teams.team_name }}</a>
+        <a href="{% url 'teams' teams.id %}" class="list-group-item">{{ teams.teamname }}</a>
         {% endfor %}
         </div>
     </div><!--/.sidebar-offcanvas-->
@@ -52,7 +52,7 @@
         </div>
         <div>
         <p>{{ teamsdesc.detail }}</p>
-        <a href="{% url 'member_list' team.id %}" class="btn btn-primary btn-lg active" role="button">队员详情</a>
+        <a href="{% url 'member_list' teamsdesc.id %}" class="btn btn-primary btn-lg active" role="button">队员详情</a>
         </div>
     </div><!--/row-->
 </div><!--content-->

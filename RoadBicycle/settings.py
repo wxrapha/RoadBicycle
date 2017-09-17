@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'teams',
     'operation',
     'xadmin',
-    'crispy_forms'
+    'crispy_forms',
+    'pure_pagination'
 ]
 
 MIDDLEWARE_CLASSES = [

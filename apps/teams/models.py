@@ -9,7 +9,7 @@ from bicycle.models import Brand
 
 
 class Teams(models.Model):
-    team_name = models.CharField(max_length=40, verbose_name=u'车队', default='')
+    teamname = models.CharField(max_length=40, verbose_name=u'车队', default='')
     detail = models.TextField(verbose_name=u'车队详情', null=True)
     image = models.ImageField(upload_to='teams/%Y/%m', verbose_name=u'车队图', max_length=100, null=True)
     add_time = models.DateTimeField(default=datetime.now, verbose_name=u'添加时间')
@@ -19,7 +19,7 @@ class Teams(models.Model):
         verbose_name_plural = verbose_name
 
     def __unicode__(self):
-        return self.team_name
+        return self.teamname
 
 
 class TeamMember(models.Model):

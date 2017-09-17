@@ -92,7 +92,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">车队<span class="caret"></span></a>
           <ul class="dropdown-menu">
             {% for team in teamslist %}
-            <li><a href="{% url 'teams' team.id %}">{{ team.team_name }}</a></li>
+            <li><a href="{% url 'teams' team.id %}">{{ team.teamname }}</a></li>
             {% endfor %}
             <li role="separator" class="divider"></li>
           </ul>
