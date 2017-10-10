@@ -4,6 +4,7 @@ from django.views.generic.base import View
 from .models import Brand, Bicycleclassify, ClassifyList
 from teams.models import Teams
 from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
+
 # Create your views here.
 
 

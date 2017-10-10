@@ -30,6 +30,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -44,8 +47,10 @@ INSTALLED_APPS = [
     'operation',
     'xadmin',
     'crispy_forms',
-    'pure_pagination'
+    'pure_pagination',
+    'captcha'
 ]
+AUTH_USER_MODEL = 'users.UserProfile'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,6 +142,14 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+EMAIL_HOST = 'smtp.sina.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'xhrapha@sina.com'
+EMAIL_HOST_PASSWORD = 'xh940723'
+EMAIL_USE_TLS = False
+EMAIL_FROM = 'xhrapha@sina.com'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
+
+

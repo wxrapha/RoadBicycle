@@ -1,11 +1,12 @@
 # _*_ coding: utf-8 _*_
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 import xadmin
 
 from django.views.static import serve
 from RoadBicycle.settings import MEDIA_ROOT
-from users.views import IndexView
+from users.views import IndexView, LoginView, RegisterView, ActiveUserView, LogoutView, ForgetPwdView, ResetView,\
+                        ModifyPwdView
 from teams.views import TeamsDetailView, MemberListView
 from bicycle.views import BrandView, BicycleListView
 
@@ -21,4 +22,13 @@ urlpatterns = [
     url(r'^memberlist/(?P<team_id>\d+)$', MemberListView.as_view(), name='member_list'),
     #配置上传文件访问地址
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT}),
+
+    url(r'^login/$', LoginView.as_view(), name='login'),
+    url('^logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^register/$', RegisterView.as_view(), name='register'),
+    url(r'^forgetpwd/$', ForgetPwdView.as_view(), name='forgetpwd'),
+    url(r'^captcha/', include('captcha.urls')),
+    url(r'^active/(?P<active_code>.*)/$', ActiveUserView.as_view(), name='user_active'),
+    url(r'^reset/(?P<active_code>.*)/$', ResetView.as_view(), name='reset_pwd'),
+    url(r'^modify_pwd/$', ModifyPwdView.as_view(), name='modify_pwd'),
 ]
